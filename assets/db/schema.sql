@@ -1,4 +1,4 @@
-DROP DATABSE IF EXISTS stocktalk;
+DROP DATABASE IF EXISTS stocktalk;
 
 CREATE DATABASE stocktalk;
 
