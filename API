@@ -1,0 +1,30 @@
+const axios = require('axios');
+
+class MarketStackAPI {
+  constructor(accessKey) {
+    this.accessKey = accessKey;
+    this.baseURL = 'http://api.marketstack.com/v1/';
+  }
+
+  async get(endpoint, params) {
+    const url = this.baseURL + endpoint;
+    params = params || {};
+    params['access_key'] = this.accessKey;
+
+    try {
+      const response = await axios.get(url, { params });
+      response.raiseForStatus();
+      return response.data;
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  }
+}
+
+const accessKey = 'bec4a906e4c75da7212bc16a662c1289';
+const api = new MarketStackAPI(accessKey);
+const params = { symbols: 'AAPL,GOOGL,MSFT' };
+api.get('eod', params)
+  .then(response => {
+    console.log(response);
+  });
