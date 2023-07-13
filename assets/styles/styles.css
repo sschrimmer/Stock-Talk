@@ -1,0 +1,90 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #F1F1F1;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+.header h1 {
+  margin: 0;
+}
+.navbar {
+  background-color: #555;
+  padding: 10px;
+}
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.navbar ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+.navbar ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+.forum-post {
+  background-color: #fff;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.forum-post h2 {
+  margin-top: 0;
+}
+.forum-post p {
+  margin-bottom: 0;
+}
+.forum-post .post-meta {
+  color: #777;
+  font-size: 14px;
+}
+.forum-post .post-meta span {
+  margin-right: 10px;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.form-group input[type="text"],
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.form-group button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+.footer p {
+  margin: 0;
+}
