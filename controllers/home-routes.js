@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
+const axios = require("axios");
 const {
     User,
     Post,
@@ -8,41 +9,38 @@ const {
 
 
 router.get('/', (req, res) => {
-    Post.findAll({
-            attributes: [
-                'id',
-                'title',
-                'content',
-                'created_at'
-            ],
-            include: [{
-                    model: Comment,
-                    attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-                    include: {
-                        model: User,
-                        attributes: ['username']
-                    }
-                },
-                {
-                    model: User,
-                    attributes: ['username']
-                }
-            ]
+    axios.get("https://www.alphavantage.co/query?function=TOP_GAINERS_LOSERS&apikey=demo")
+    .then(response => {
+        const { most_actively_traded, top_gainers, top_losers } = response.data;
+        const tickers = [...most_actively_traded, ...top_gainers, ...top_losers];
+        res.render("homepage", {
+            tickers,
+            loggedIn: req.session.loggedIn
         })
-        .then(dbPostData => {
-            const posts = dbPostData.map(post => post.get({
-                plain: true
-            }));
+    })
+    // fetch(
+    //     "https://www.alphavantage.co/query?function=TOP_GAINERS_LOSERS&apikey=demo"
+    //   )
+    //     .then((response) => response.json())
+    //       .then((data) => {
+    //           const { most_actively_traded, top_gainers, top_losers } = data;
+    //           const tickers = [...most_actively_traded, ...top_gainers, ...top_losers]
+    //           return tickers;
+    //   });
+    //     .then(dbPostData => {
+    //         const posts = dbPostData.map(post => post.get({
+    //             plain: true
+    //         }));
 
-            res.render('homepage', {
-                posts,
-                loggedIn: req.session.loggedIn
-            });
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
+    //         res.render('homepage', {
+    //             posts,
+    //             loggedIn: req.session.loggedIn
+    //         });
+    //     })
+    //     .catch(err => {
+    //         console.log(err);
+    //         res.status(500).json(err);
+    //     });
 });
 
 router.get('/post/:id', (req, res) => {
