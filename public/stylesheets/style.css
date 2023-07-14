@@ -9,6 +9,7 @@ html {
     margin: 0;
     font-family: sans-serif;
     color: #333;
+
 }
 
 main,
@@ -52,6 +53,17 @@ button:hover {
     margin: 0;
     padding: 0;
     list-style-type: none;
+    display: flex;
+    gap: 3rem;
+    animation: moveLeft 60s linear infinite
+}
+@keyframes moveLeft {
+    0% {
+        transform: translateX(0)
+    }
+    100% {
+        transform: translateX(-100%)
+    }
 }
 
 .go-back {
@@ -91,6 +103,7 @@ form label {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    overflow: hidden
 }
 
 .info-section {

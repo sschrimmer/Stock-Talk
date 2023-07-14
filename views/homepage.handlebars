@@ -1,7 +1,9 @@
 <ul class="post-list">
-    {{#each posts as |post|}}
+    {{#each tickers as |ticker|}}
     <li>
-        {{> post-info post }}
+        {{ ticker.ticker }}
+         {{ ticker.price }}
+          {{ ticker.change_percentage }}
     </li>
     {{/each}}
 </ul>
