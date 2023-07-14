@@ -1,3 +1,10 @@
-DROP DATABASE IF EXISTS tech_blog_db;
+DROP DATABASE IF EXISTS stocktalk;
 
-CREATE DATABASE tech_blog_db;
+CREATE DATABASE stocktalk;
+
+USE stocktalk;
+CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(50) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL
+);
