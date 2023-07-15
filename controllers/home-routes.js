@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const axios = require("axios");
+const Handlebars = require('handlebars');
 const {
     User,
     Post,
@@ -8,16 +9,35 @@ const {
 } = require('../models');
 
 
+Handlebars.registerHelper('getColorClass', function(changePercentage) {
+    if (changePercentage[0] === "-") {
+        return 'loser';
+    } else {
+        return 'gainer';
+    }
+});
+
 router.get('/', (req, res) => {
     axios.get("https://www.alphavantage.co/query?function=TOP_GAINERS_LOSERS&apikey=demo")
     .then(response => {
         const { most_actively_traded, top_gainers, top_losers } = response.data;
-        const tickers = [...most_actively_traded, ...top_gainers, ...top_losers];
+        
+        const tickers = [
+            ...most_actively_traded,
+            ...top_gainers,
+            ...top_losers
+        ];
+        
         res.render("homepage", {
             tickers,
             loggedIn: req.session.loggedIn
-        })
+        });
     })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+
     // fetch(
     //     "https://www.alphavantage.co/query?function=TOP_GAINERS_LOSERS&apikey=demo"
     //   )

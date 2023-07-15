@@ -278,3 +278,11 @@ main {
 #post-title {
     width: 100%;
 }
+
+.gainer {
+    color: green;
+  }
+  
+  .loser {
+    color: red;
+  }
