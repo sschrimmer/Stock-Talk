@@ -14,13 +14,13 @@ html {
 
 main,
 .site-name {
-    background-color: #b8cba2;
+    background-color: #93c25b;
 }
 
 a,
 .btn-no-style,
 #comment-subtitle {
-    color: #b8cba2;
+    color: #93c25b;
 }
 
 a:hover,
@@ -35,7 +35,7 @@ a {
 }
 
 button {
-    background-color: #225ca3;
+    background-color: #3486eb;
     border: 0;
     padding: 1%;
     color: white;
@@ -46,7 +46,7 @@ button {
 }
 
 button:hover {
-    background-color: #3486eb;
+    background-color: #48678e;
 }
 
 .post-list {
@@ -67,7 +67,7 @@ button:hover {
 }
 
 .go-back {
-    color: #2c2307;
+    color: #7d7d7d;
 }
 
 textarea,
@@ -116,7 +116,7 @@ header,
 .site-row,
 .info-section,
 .form-heading {
-    background-color: #2c2307;
+    background-color: #48678e;
 }
 
 .login-page,
@@ -193,7 +193,7 @@ main {
 }
 
 .delete-post-btn:hover {
-    background-color: #ff643d;
+    background-color: #fb4416;
 }
 
 .post {
@@ -257,7 +257,7 @@ main {
 
 .sign-in-link,
 .login-link {
-    color: #2c2307;
+    color: #83670f;
 }
 
 .form-heading h1,
