@@ -1,3 +1,29 @@
+const mysql = require('mysql');
+
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'stocktalk',
+  });
+
+  async function signupFormHandler(event) {
+  
+    if (username && password) {
+      try {
+        // Insert user data into the 'users' table
+        const query = 'INSERT INTO users (username, password) VALUES (?, ?)';
+        await connection.query(query, [username, password]);
+  
+        document.location.replace('/dashboard');
+      } catch (error) {
+        console.error(error);
+        alert('An error occurred during signup. Please try again.');
+      }
+    }
+  
+  }
+
 async function signupFormHandler(event) {
     event.preventDefault();
 
