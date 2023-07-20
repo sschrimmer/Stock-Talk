@@ -2,6 +2,7 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const axios = require("axios");
 const Handlebars = require('handlebars');
+const getTickerData = require("../utils/tickers")
 const {
     User,
     Post,
@@ -17,50 +18,18 @@ Handlebars.registerHelper('getColorClass', function(changePercentage) {
     }
 });
 
-router.get('/', (req, res) => {
-    axios.get("https://www.alphavantage.co/query?function=TOP_GAINERS_LOSERS&apikey=demo")
-    .then(response => {
-        const { most_actively_traded, top_gainers, top_losers } = response.data;
-        
-        const tickers = [
-            ...most_actively_traded,
-            ...top_gainers,
-            ...top_losers
-        ];
-        
-        res.render("homepage", {
-            tickers,
-            loggedIn: req.session.loggedIn
-        });
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
+router.get("/", async (req, res) => {
+  try {
+    const tickers = await getTickerData();
+
+    res.render("homepage", {
+      tickers,
+      loggedIn: req.session.loggedIn,
     });
-
-    // fetch(
-    //     "https://www.alphavantage.co/query?function=TOP_GAINERS_LOSERS&apikey=demo"
-    //   )
-    //     .then((response) => response.json())
-    //       .then((data) => {
-    //           const { most_actively_traded, top_gainers, top_losers } = data;
-    //           const tickers = [...most_actively_traded, ...top_gainers, ...top_losers]
-    //           return tickers;
-    //   });
-    //     .then(dbPostData => {
-    //         const posts = dbPostData.map(post => post.get({
-    //             plain: true
-    //         }));
-
-    //         res.render('homepage', {
-    //             posts,
-    //             loggedIn: req.session.loggedIn
-    //         });
-    //     })
-    //     .catch(err => {
-    //         console.log(err);
-    //         res.status(500).json(err);
-    //     });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
 
 router.get('/post/:id', (req, res) => {
