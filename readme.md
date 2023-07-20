@@ -14,7 +14,11 @@ their past or current posts. On the blog page there are stock tickers that show 
 
 
 Contributors:
+
 Nicholas Dillon
+
 Steven Schrimmer
+
 Vlad Simonyan
+
 Greg Pellet
