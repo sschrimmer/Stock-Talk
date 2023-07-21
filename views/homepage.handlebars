@@ -1,0 +1,9 @@
+<ul class="post-list">
+    {{#each tickers as |ticker|}}
+    <li class="{{getColorClass ticker.change_percentage}}">
+        {{ ticker.ticker }}
+        {{ ticker.price }}
+        {{ ticker.change_percentage }}
+    </li>
+    {{/each}}
+</ul>

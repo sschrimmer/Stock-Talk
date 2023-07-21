@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\db",
+    "\\models",
+    "\\public",
+    "\\public\\javascript",
+    "\\public\\stylesheets",
+    "\\utils",
+    "\\views",
+    "\\views\\layouts",
+    "\\views\\partials"
+  ],
+  "SelectedNode": "\\views\\layouts\\main.handlebars",
+  "PreviewInSolutionExplorer": false
+}
