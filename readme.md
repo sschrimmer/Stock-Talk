@@ -20,7 +20,7 @@ GitHub Repo: https://github.com/NickD428/Stock-Talk
 
 
 
-Contributors:
+# Contributors:
 
 Nicholas Dillon
 
