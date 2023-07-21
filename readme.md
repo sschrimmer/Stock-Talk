@@ -15,6 +15,7 @@ their past or current posts. On the blog page there are stock tickers that show 
 # Links
 
 Deployed: https://stock-talk-b89b421e1b62.herokuapp.com/
+
 GitHub Repo: https://github.com/NickD428/Stock-Talk
 
 
